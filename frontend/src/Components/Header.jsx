@@ -1,19 +1,14 @@
-import './Header.css'
-
 const Header = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-emerald-50">
         <div class="container-fluid">
-          <a class="navbar-brand temp" href="#">Task Manager</a>
-          
-          <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-primary me-2" type="submit" >SignUp</button>
-              <button class="btn btn-outline-primary " type="submit">SignIn</button>
+          <Link class="navbar-brand temp text-primary fs-2 fw-bold" href="/">Task Manager</Link>
+            <form class="d-flex justify-content-end" role="search">
+              <input class="form-control me-2 fw-bold" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-primary me-2 fw-bold" type="submit" > <a href="/signup"> SignUp </a></button>
+              <button class="btn btn-outline-primary fw-bold " type="submit"><a href="/signin"> SignIn </a></button>
             </form>
-          </div>
         </div>
       </nav>
     </div>
@@ -21,3 +16,5 @@ const Header = () => {
 }
 
 export default Header
+
+
