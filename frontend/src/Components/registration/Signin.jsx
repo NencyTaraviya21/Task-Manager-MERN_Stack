@@ -1,25 +1,22 @@
 import React from 'react'
-import'./Sign.css'
 
 const Signin = () => {
   return (
-    <>
-      <div class="">
-        <div class="card-header myheader lato-black">
+    <div className='d-flex justify-content-center'>
+      <div className="card text-center mt-5 w-50">
+        <div className="card-header myHeader lato-black bg-purple-500 text-2xl text-zinc-50">
           Sign-in
         </div>
-        <div class="card-body flex flex-col justify-center ">
-        <input class="form-control  w-25 align-middle " type="search" placeholder="Enter your name" aria-label="Search" />
-        <input class="form-control  w-25  " type="search" placeholder="Enter your email" aria-label="Search" />
-        <input class="form-control  w-25  " type="search" placeholder="Enter your password" aria-label="Search" />
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Sign-in</a>
+        <div className="card-body d-flex flex-column align-items-center ">
+          <input className="form-control me-2 ms-5 w-50 text-center" type="search" placeholder="Enter Username" aria-label="Search" />
+          <input className="form-control me-2 ms-5 w-50 text-center mt-3" type="search" placeholder="Enter Password" aria-label="Search" />
+          <a href="#" className="btn bg-purple-500">Go somewhere</a>
         </div>
-        <div class="card-footer text-body-secondary">
+        <div className="card-footer text-body-secondary">
           2 days ago
-        </div>
+        </div>  
       </div>
-    </>
+    </div>
   )
 }
 
