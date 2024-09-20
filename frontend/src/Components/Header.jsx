@@ -1,18 +1,45 @@
+// import { Link } from 'react-router-dom';
+// const Header = () => {
+//   return (
+//     <div>
+//       <nav class="navbar navbar-expand-lg bg-emerald-50">
+//         <div class="container-fluid">
+//           <Link class="navbar-brand temp text-primary fs-2 fw-bold" to="/">Task Manager</Link>
+//             <form class="d-flex justify-content-end" role="search">
+//               <input class="form-control me-2 fw-bold" type="search" placeholder="Search" aria-label="Search" />
+//               <button type="button" class="btn btn-outline-primary w-40 me-2"><Link to="/signin">Sign-in</Link></button>
+//               <button type="button" class="btn btn-outline-primary w-40 me-2"><Link to="/signup">Sign-up</Link></button>
+//             </form>
+//         </div>
+//       </nav>
+//     </div>
+//   )
+// }
+
+// export default Header;
+
+
+import {Link  }from 'react-router-dom';
+
 const Header = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-emerald-50">
-        <div class="container-fluid">
-          <a class="navbar-brand temp text-primary fs-2 fw-bold" href="/">Task Manager</a>
-            <form class="d-flex justify-content-end" role="search">
-              <input class="form-control me-2 fw-bold" type="search" placeholder="Search" aria-label="Search" />
-              <button type="button" class="btn btn-outline-primary w-40 me-2"><a href="/signin">Sign-in</a></button>
-              <button type="button" class="btn btn-outline-primary w-40 me-2"><a href="/Login">Log-in</a></button>
-            </form>
+      <nav className="navbar navbar-expand-lg bg-emerald-50">
+        <div className="container-fluid">
+          <Link className="navbar-brand temp text-primary fs-2 fw-bold" to="/">Task Manager</Link>
+          <form className="d-flex justify-content-end" role="search">
+            <input className="form-control me-2 fw-bold" type="search" placeholder="Search" aria-label="Search" />
+            <Link to="/signin">
+              <button type="button" className="btn btn-outline-primary w-40 me-2">Sign-in</button>
+            </Link>
+            <Link to="/signup">
+              <button type="button" className="btn btn-outline-primary w-40 me-2">Sign-up</button>
+            </Link>
+          </form>
         </div>
       </nav>
     </div>
-  )
-}
+  );
+};
 
 export default Header;

@@ -3,24 +3,24 @@ import Signin from './Components/registration/Signin';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import Login from './Components/registration/Login'
+import Signup from './Components/registration/Signup';
 
 
 function App() {  
 
   return (
       <>
-      <Header/>
 
       <BrowserRouter>
+      <Header/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signin' element={<Signin/>}/>
-          <Route path='/Login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
         </Routes>
       </BrowserRouter>
   
-        {/* <Signin/>  */}
+
       </>
   )
 }

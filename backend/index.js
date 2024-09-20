@@ -24,7 +24,7 @@ mongoose.connect(mongoDBURL)
             res.send("Hello...")
         })
 
-        app.post('/user', async(req, res) => {
+        app.post('/signup', async(req, res) => {
 
             try {
                 if(!req.body.name || !req.body.email || !req.body.password){
