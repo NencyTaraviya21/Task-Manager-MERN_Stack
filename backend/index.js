@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import Task from './Models/taskModel.js';
 import User from './Models/userModel.js';
 
-dotenv.config();
+dotenv.config(); 
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: true }));
@@ -17,7 +17,7 @@ mongoose.connect(mongoDBURL)
         console.log("Database Connected Successfully.");
 
         //Routes here!!
-
+        let data = document.getElementById('data')
         app.get('/',(req,res) => {
             console.log(User);  // This should log the User model definition
             console.log(typeof User.create);  // This should log 'function'
@@ -28,7 +28,7 @@ mongoose.connect(mongoDBURL)
 
             try {
                 if(!req.body.name || !req.body.email || !req.body.password){
-                   return res.status(400).json({message : "Please enter all required fields."});
+                   return res.status(400).json({message : "Please enter all required fields."}); //unable to process the request
                 }
                 const newUser = {
                     name : req.body.name,
@@ -37,11 +37,11 @@ mongoose.connect(mongoDBURL)
                 };
 
                 const user = await User.create(newUser);
-                return res.status(201).json(user);
+                return res.status(201).json(user); // http request was successful
 
             } catch (error) {
                 console.log(error.message);
-                res.status(500).json({ message: error.message });
+                res.status(500).json({ message: error.message }); //internal server error
             }
         });
 

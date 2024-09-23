@@ -19,13 +19,12 @@ const Signup = () => {
       },
       body: JSON.stringify(detailObj),
       });
-    
+
       navigate('/userSignup');
 
       console.log(data);
 
   };
-
 
   return (
     <div className='d-flex justify-content-center'>
@@ -34,7 +33,7 @@ const Signup = () => {
          Sign-up
         </div>
         <div className="card-body d-flex flex-column align-items-center">
-          <form onSubmit={handleSubmit} className="w-100 d-flex flex-column align-items-center"  method='post'>
+          <form onSubmit={handleSubmit} id='data' className="w-100 d-flex flex-column align-items-center"  method='post'>
             <input
               className="form-control me-2 ms-5 w-50 text-center mt-3"
               type="text"
@@ -66,5 +65,4 @@ const Signup = () => {
     </div>
   );
 };
-
 export default Signup;

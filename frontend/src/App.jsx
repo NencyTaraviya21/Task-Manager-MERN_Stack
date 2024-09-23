@@ -6,8 +6,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Signup from './Components/registration/Signup';
 
 
-function App() {  
-
+function App() { 
   return (
       <>
 
