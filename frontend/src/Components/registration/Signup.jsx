@@ -3,29 +3,26 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email,setEmail] = useState('');
   const navigate = useNavigate(); 
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const detailObj = { username, password, email };
-
-    const data= await axios.get('/userSignup',{
-      method: 'Post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(detailObj),
-      });
-
-      navigate('/userSignup');
-
+    try{
+      const data = await axios.post('http://localhost:3000/signup',{
+        name, email,password
+        });
       console.log(data);
+    }
+    catch(e){
+      console.log(e);
+    }
 
   };
-
+   
+    
   return (
     <div className='d-flex justify-content-center'>
       <div className="card text-center mt-5 w-50">
@@ -38,8 +35,8 @@ const Signup = () => {
               className="form-control me-2 ms-5 w-50 text-center mt-3"
               type="text"
               placeholder="Enter Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value = {name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
             <input
@@ -65,4 +62,5 @@ const Signup = () => {
     </div>
   );
 };
+
 export default Signup;

@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyparser from 'body-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import Task from './Models/taskModel.js';
 import User from './Models/userModel.js';
 
@@ -9,6 +10,7 @@ dotenv.config();
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(cors());
 
 const mongoDBURL = process.env.connStr;
 
@@ -17,7 +19,6 @@ mongoose.connect(mongoDBURL)
         console.log("Database Connected Successfully.");
 
         //Routes here!!
-        let data = document.getElementById('data')
         app.get('/',(req,res) => {
             console.log(User);  // This should log the User model definition
             console.log(typeof User.create);  // This should log 'function'
