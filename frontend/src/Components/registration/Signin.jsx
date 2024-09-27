@@ -1,13 +1,24 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const Signin = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  const [name, setname] = useState('');
+  const [password, setPassword] = useState('');
+  
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Add your sign-in logic here, e.g., making an API request
-    console.log('Username:', username, 'Password:', password);
+    
+    try{
+      const data = await axios.post('http://localhost:3000/signin',{
+        name,password
+      });
+      console.log(data);
+    }
+    catch(e){
+      console.log(e);
+    }
+
   };
 
   return (
@@ -22,8 +33,8 @@ const Signin = () => {
               className="form-control me-2 ms-5 w-50 text-center mt-3"
               type="text"
               placeholder="Enter Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={name}
+              onChange={(e) => setname(e.target.value)}
               required
             />
             <input

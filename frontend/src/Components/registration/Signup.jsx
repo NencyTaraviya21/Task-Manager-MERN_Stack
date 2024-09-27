@@ -10,10 +10,11 @@ const Signup = () => {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
     try{
       const data = await axios.post('http://localhost:3000/signup',{
         name, email,password
-        });
+      });
       console.log(data);
     }
     catch(e){

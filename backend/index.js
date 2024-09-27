@@ -11,6 +11,7 @@ dotenv.config();
 const app = express();
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.json());
 
 const mongoDBURL = process.env.connStr;
 
@@ -26,7 +27,7 @@ mongoose.connect(mongoDBURL)
         })
 
         app.post('/signup', async(req, res) => {
-
+            console.log(req.body);
             try {
                 if(!req.body.name || !req.body.email || !req.body.password){
                    return res.status(400).json({message : "Please enter all required fields."}); //unable to process the request
@@ -45,6 +46,33 @@ mongoose.connect(mongoDBURL)
                 res.status(500).json({ message: error.message }); //internal server error
             }
         });
+
+        app.use('/signin',async(req,res)=>{
+            
+            console.log(req.body);
+
+            try{
+                if(!req.body.name || !req.body.password){
+                    res.status(400).json({message : "Please enter all required fields."});
+                }
+
+                const user = await User.findOne({name:req.body.name});
+
+                // console.log(user);
+
+                if(user){
+                    res.status(200).json({message:"User found!!"})
+                }
+                else{
+                    res.status(404).json({message:"User not found!!"});
+                }
+            }
+            catch(error){
+                // console.log(error.message);
+                res.status(500).json({ message: error.message });
+            }
+
+        })
 
         app.listen(process.env.PORT, () => {
             console.log("Server Started Successfully.");
