@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import { Outlet } from 'react-router-dom'
 
 const Home = () => {
     return (
@@ -10,7 +11,8 @@ const Home = () => {
                 </div>
                 <div className='fs-2'>This is the <div className='bg-emerald-100 d-inline-block fs-1 text-teal-900'>Home</div> page.</div>
             </div>
-        </> 
+
+        </>
     )
 }
 

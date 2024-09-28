@@ -1,10 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const Signin = () => {
 
   const [name, setname] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -13,7 +17,18 @@ const Signin = () => {
       const data = await axios.post('http://localhost:3000/signin',{
         name,password
       });
-      console.log(data);
+      if(data.status === 200){ //all ok
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Signin Successfully.",
+            showConfirmButton: false,
+            timer: 1500
+          }).then(()=>{
+            navigate('/tasks');  
+          });
+          
+      }
     }
     catch(e){
       console.log(e);

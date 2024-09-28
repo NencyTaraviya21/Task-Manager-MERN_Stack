@@ -68,10 +68,15 @@ mongoose.connect(mongoDBURL)
                 }
             }
             catch(error){
-                // console.log(error.message);
+                console.log(error.message);
                 res.status(500).json({ message: error.message });
             }
 
+        })
+
+        app.get('/tasks',async(req,res)=>{
+            const result = await Task.find();
+            res.status(200).send(result);
         })
 
         app.listen(process.env.PORT, () => {

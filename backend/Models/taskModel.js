@@ -28,6 +28,12 @@ const TaskSchema = mongoose.Schema({
     },
     dueDate: {
         type: Date,
+        set: function(v) {
+            return new Date(v.setHours(0, 0, 0, 0));
+        },
+        get: function(v) {
+            return v ? new Date(v).toLocaleDateString('en-GB') : v;
+        }
     },
     createdAt: {
         type: Date,
@@ -39,6 +45,13 @@ const TaskSchema = mongoose.Schema({
     }
 
 });
+
+TaskSchema.pre('save', function(next) {
+    this.updatedAt = Date.now();
+    next();
+});
+
+TaskSchema.set('toJSON', { getters: true });
 
 const Task = mongoose.model('Task',TaskSchema);
 export default Task;   
