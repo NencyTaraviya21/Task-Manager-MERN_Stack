@@ -6,6 +6,7 @@ import cors from 'cors';
 import Task from './Models/taskModel.js';
 import User from './Models/userModel.js';
 
+
 dotenv.config(); 
 
 const app = express();
@@ -79,8 +80,24 @@ mongoose.connect(mongoDBURL)
             res.status(200).send(result);
         })
 
+        app.delete('/tasks',async(req,res)=>{
+            console.log(req.body.id);
+            try{
+                const obj = Task.findOne({_id:req.body.id});
+                console.log(obj)
+                // const result = await Task.findByIdAndDelete();
+                // res.send(result);
+                res.send("hello");
+            }
+            catch(error){
+                res.status(500).json({message:error.message});
+            }
+        })
+
         app.listen(process.env.PORT, () => {
             console.log("Server Started Successfully.");
         });
+
+
 
     })

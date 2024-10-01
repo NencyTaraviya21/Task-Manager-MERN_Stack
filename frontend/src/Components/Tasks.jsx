@@ -35,9 +35,16 @@ const Tasks = () => {
                             <p class="card-text text-center font-sans mt-2">{obj.dueDate}</p>
 
                             <div className='d-flex justify-end mt-4'>
-                            <Link to="#" class="btn btn-outline-danger h-9 mt-1 me-3 rounded-lg">Edit</Link>
-                            <Link to="">
-                                <img src="/images/delete.png" alt="Image not found!!"  style={{height:"5vh"}} className='mt-1'/>
+                            <Link to="" class="btn btn-outline-danger h-9 mt-1 me-3 rounded-lg">Edit</Link>
+                            <Link>
+                                <button onClick={async()=>{
+                                    const result = await axios.post('/tasks',obj._id)
+                                        console.log(result);
+                                    // console.log(obj._id);
+                                    
+                                }}>
+                                    <img src="/images/delete.png" alt="Image not found!!"  style={{height:"5vh"}} className='mt-1'/>
+                                </button>
                             </Link>
                             </div>
                         </div>
@@ -45,7 +52,6 @@ const Tasks = () => {
                 </div>
             </>
         );
-
     });
 
     return (
