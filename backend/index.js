@@ -80,14 +80,18 @@ mongoose.connect(mongoDBURL)
             res.status(200).send(result);
         })
 
-        app.delete('/tasks',async(req,res)=>{
-            console.log(req.body.id);
+        app.delete('/tasks/:id',async(req,res)=>{
+            console.log(req.params.id);
             try{
-                const obj = Task.findOne({_id:req.body.id});
-                console.log(obj)
+                const obj1 = await Task.findById(req.params.id);
+                console.log(obj1);
+                
+                const obj = await Task.findOneAndDelete({_id:req.params.id});
+                console.log(obj);
+
+                res.send("hello");  
                 // const result = await Task.findByIdAndDelete();
                 // res.send(result);
-                res.send("hello");
             }
             catch(error){
                 res.status(500).json({message:error.message});
