@@ -9,7 +9,7 @@ A simple, and efficient Task Manager built using the MERN (MongoDB, Express.js, 
 
 - User can SignUp/Login for their Accounts
 
-![User can SignUp/Login for their Accounts](TSignUpPage.png)
+![User can SignUp/Login for their Accounts](TSIgnUpPage.png)
 
 - Manage your tasks
  
@@ -19,7 +19,7 @@ A simple, and efficient Task Manager built using the MERN (MongoDB, Express.js, 
 
 ![Add your items to the cart](TAddTask.png)
 
-- delete unwanted tasks.
+- Delete unwanted tasks.
 
 ## Technology Stack
 
