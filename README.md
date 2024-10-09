@@ -1,4 +1,5 @@
-# MERN Stack Shopping Store
+# MERN Stack Task Manager
+
 
 A simple, and efficient Task Manager built using the MERN (MongoDB, Express.js, React, Node.js) stack. This allows users to add, delete and edit tasks, and also mark them as finished.
 
